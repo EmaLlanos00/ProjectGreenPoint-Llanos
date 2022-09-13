@@ -2,18 +2,12 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
   BookmarkSquareIcon,
   CalendarIcon,
   ArrowRightCircleIcon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
   LifebuoyIcon,
-  PhoneIcon,
-  PlayIcon,
   ShieldCheckIcon,
-  Squares2X2Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -92,7 +86,7 @@ export default function Navbar() {
               <img
                 className=" h-12 w-auto sm:h-16"
                 src=  { Logo } 
-                alt=""
+                alt="Logo"
               />
             </a>
           </div>

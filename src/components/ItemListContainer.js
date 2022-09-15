@@ -4,7 +4,7 @@ import products from "../utilities/products"
 import { useEffect, useState } from "react"
 import myFetch from "../utilities/myFetch"
 
-export default function Example( { greeting } ) {
+export default function Example() {
   
   const [listProducts, setListProducts] = useState([])
 

@@ -28,7 +28,7 @@ const products = [
         id: 4,
         title: 'Castañas',
         img: '../products/castanas-de-para_1.jpg',
-        details: 'castañas de para peladas por 150grs',
+        details: 'Castañas de para peladas por 150grs.',
         price: 500
     },
 
@@ -36,7 +36,7 @@ const products = [
         id: 5,
         title: 'Granola sin pasas',
         img: '../products/granola-crujiente-sin-pasas_5.jpg',
-        details: 'granola crujiente sin pasas por 500grs',
+        details: 'Granola crujiente sin pasas por 500grs',
         price: 600
     },
 

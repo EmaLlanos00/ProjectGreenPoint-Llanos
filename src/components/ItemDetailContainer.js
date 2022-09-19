@@ -2,19 +2,21 @@ import ItemDetail from "./ItemDetail"
 import products from "../utilities/products"
 import { useEffect, useState } from "react"
 import myFetch from "../utilities/myFetch"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
   
   const [singleProd, setSingleProd] = useState({})
-
+  const { id } = useParams()
+  console.log(id)
   useEffect(( ) => {
-    myFetch(products[3])
+    myFetch(products.find(prod => prod.id == id))
     .then(data => setSingleProd(data))
     
   }, [])
   
   return (
-    <div className="flex flex-row flex-wrap gap-4 justify-evenly">
+    <div className="w-8/12 flex justify-center m-auto">
     <ItemDetail data={singleProd}/>
     </div>
   )

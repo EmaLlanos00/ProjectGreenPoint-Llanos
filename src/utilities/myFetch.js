@@ -4,7 +4,7 @@ const myFetch = (answer) => {
         () => {
           resolve(answer);
         }, 
-        1500
+        250
       );
     });
   };

@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
     myFetch(products.find(prod => prod.id == id))
     .then(data => setSingleProd(data))
     
-  }, [])
+  }, [id])
   
   return (
     <div className="w-8/12 flex justify-center m-auto">

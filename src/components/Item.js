@@ -1,5 +1,4 @@
 import React from 'react'
-import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom'
 
 const Item = ({title, id, description, price, img}) => {
@@ -15,10 +14,6 @@ const Item = ({title, id, description, price, img}) => {
               <div className="badge badge-lg badge-secondary">$ {price},00</div>
               <Link to={`/item/${id}`}><button className="btn btn-primary">Ver más</button></Link>
               </div>
-              {/* <ItemCount stock={Math.floor(Math.random() *20) + 5}/> */}
-              {/* <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Ver más</button>
-              </div> */}
           </div>
       </div>
   )

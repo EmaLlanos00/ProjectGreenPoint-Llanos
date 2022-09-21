@@ -9,33 +9,18 @@ export default function Example() {
   
   const [listProducts, setListProducts] = useState([])
   const { category } = useParams()
-  console.log('hola')
-  console.log(category)
   
-  useEffect(( ) => {
-    if(category == undefined){
-      console.log('first') 
+  useEffect(()=>{
+  if(category == undefined){
     myFetch(products)
-    .then(data => setListProducts(data))}
-    else if (category == 'vegan'){
-      myFetch(products.filter(prod => prod.categories.vegan==true))
-      .then(data => setListProducts(data))
-    }else if(category == 'nuts'){
-      myFetch(products.filter(prod => prod.categories.nuts==true))
-      .then(data => setListProducts(data))
-    }else if(category == 'frozen'){
-      myFetch(products.filter(prod => prod.categories.frozen == true))
-        .then(data => setListProducts(data))
-    }else if (category == 'celiac'){
-      myFetch(products.filter(prod => prod.categories.celiac == true))
-      .then(data => setListProducts(data))
-    }else if (category == 'breakfast'){
-      myFetch(products.filter(prod => prod.categories.breakfast == true))
+    .then(data=> setListProducts(data))}
+    else if(category !== undefined){
+      myFetch(products.filter(prod => prod.categories[category]==true))
       .then(data => setListProducts(data))
     }
-    
-  }, [category])
-  console.log(listProducts)
+
+  
+}, [category])
   return (
     <div className="flex flex-row flex-wrap gap-4 justify-evenly">
     <ItemList products={listProducts}/>

@@ -1,5 +1,6 @@
 # Proyecto Green Point
 
+## [Changelog](#new)
 
 ## Acerca de este trabajo:
 
@@ -23,6 +24,8 @@ En primera instancia, y como las consignas del curso de React sugieren, este sit
 -**Heroicons:** biblioteca de iconos svg de Tailwind, se usan algunos en el Navbar, por ejemplo el carrito.
 
 -**DaisyUI:** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
+- **React-toastify:** intenté usar toastify-js para poner alertas más visuales pero no funciona bien con React parece. React-toastify parece ser muy popular así que me involucré en la aventura de leer su documentación. Tiene un nivel de personalización exagerado, es incalculable la cantidad de cosas que se le pueden agregar al toast.
+ En el proyecto lo uso para avisar cuántos productos fueron agregados al carrito, se trata de brindarle más interacción a la página con el usuario.
 
 ## Navegabilidad
 
@@ -50,13 +53,16 @@ Aquí se incoporarán las explicaciones a detalle para desplazarse a través del
 
 > Desde ItemDetail se puede volver mediante el logo al inicio (1), obsérvese el contador requerido en la parte inferior de la página (2). Productos y Contacto son obviamente funcionales desde el apartado detalles. 
 
-## Cambios Recientes
 
-- [15/09/22]
+
+<a name="new"><a/>
+## Novedades
+
+- **15/09/22**
 - Se ha creado la estructura base del componente ItemDetail.
 - Se han arreglado problemas menores de arrays.
 - Editado el Readme.md, acorde a este proyecto.
-- [19/09/22]
+- **19/09/22**
 - Componentes nuevos: footer, ContactPage.
 - Agregados más productos con sus imágenes.
 - Routing mediante react-router-dom.
@@ -66,5 +72,13 @@ Aquí se incoporarán las explicaciones a detalle para desplazarse a través del
 - Posición de Navbar fija en todo momento (sticky).
 - Arreglados problemas de z-index.
 - Eliminado código irrelevante de Navbar y otros archivos.
-
-
+- **21/09/22**
+- Agregado stock por producto al database (product.js).
+- Creado eventos que propician la interacción de datos entre componentes padres e hijos.
+- Agregado context, estados globales y funciones globales.
+- Carrito muestra conenido y posee funcionalidad (borrar, vaciar, total, etc).
+- Carrito no repite items, e incluso *quantity* de los items se actualiza si se agregan más del mismo item.
+- CartWidget muestra el total de items en el carrito (si es 0 no aparece).
+- Utilizado operador ternario y otros para montar condicionalmente elementos diversos.
+- Ejemplo: si el stock es igual al valor del contador, el botón "+" se bloquea.
+- Agregado react-toastify para ofrecer mejores alertas.

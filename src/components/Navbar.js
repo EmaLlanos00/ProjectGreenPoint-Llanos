@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -10,6 +10,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Logo from '../logoStore.png';
 import CartWidget from './CartWidget'
 import { Link, NavLink } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 const solutions = [
   {
@@ -44,6 +45,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const ctx = useContext(CartContext);
   return (
     <Popover className="sticky top-0 bg-yellow-300 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -117,26 +119,27 @@ export default function Navbar() {
               )}
             </Popover>
 
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+            <Link to={'/cart'} className="text-base font-medium text-gray-500 hover:text-gray-900">
               Sucursales
-            </a>
+            </Link>
             <Link to={`/contact`} className="text-base font-medium text-gray-500 hover:text-gray-900">
               Contacto
             </Link>
-            <a href="#" >
+            {(ctx.cartList.length !=0) && <Link to={'/cart'} >
                 <div className="h-6 w-6 flex-shrink-0 text-black" aria-hidden="true" ><CartWidget /></div> 
-            </a>                  
+            </Link>
+            }               
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            <Link to={'/'} className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Sign in
-            </a>
-            <a
+            </Link>
+            <Link ti={'/'}
               href="#"
               className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700"
             >
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -194,18 +197,18 @@ export default function Navbar() {
                 </Link>
               </div>
               <div>
-                <a
-                  href="#"
+                <Link
+                  to={'/'}
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green
                   -700"
                 >
                   Sign up
-                </a>
+                </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{' '}
-                  <a href="#" className="text-yellow-600 hover:text-yellow-500">
+                  <Link to={'/'} className="text-yellow-600 hover:text-yellow-500">
                     Sign in
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

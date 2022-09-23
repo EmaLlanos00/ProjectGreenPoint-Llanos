@@ -1,4 +1,4 @@
-const products = [
+const oldProducts = [
     {
         id: 1,
         title: 'Almendras tostadas',
@@ -17,7 +17,7 @@ const products = [
             vegan: true,
             frozen: false
         }
-        
+
     },
 
     {
@@ -265,7 +265,7 @@ const products = [
         uses: 'Una alternativa vegana a los clásicos nuggets de pollo, pueden trozarse y mezclar en ensaladas o untarlos con salsas para su consumo.',
         nutritionalFacts: 'Valor energético: 309 kcal; Carbohidratos: 30 g; Proteínas: 15 g; Grasas Totales: 14 g; Grasas Saturadas: 1.4 g; Grasas Trans: 0 g; Fibra Alimentaria: 7.9 g; Sodio: 822 mg; Porción: 130 g (9 unidades).',
         price: 500,
-        stock: 18, 
+        stock: 18,
         categories: {
             nuts: false,
             breakfast: false,
@@ -312,7 +312,7 @@ const products = [
             frozen: true
         }
     }
-    
+
 ];
 
-export default products
+export default oldProducts

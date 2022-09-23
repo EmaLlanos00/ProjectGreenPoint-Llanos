@@ -10,7 +10,7 @@ const CartWidget = () => {
             <div className="w-7">
             <ShoppingCartIcon/>
             </div>
-            <span className="indicator-item badge">{ctx.cartList.reduce((acc,item)=> acc + item.quantity, 0)}</span>
+            <span className="indicator-item badge">{ctx.cartList.reduce((acc, item)=> acc + item.quantity, 0)}</span>
         </div>
     );
 }

@@ -15,13 +15,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
     
-    const addToCart = () => {
-        setValue(Value);   
-    }
-    const clickHandler = () => {
-        onAdd(Value);
-        addToCart(); 
-    }
+   
+   
 
     
   return (
@@ -42,7 +37,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     </div>
     <div className="card-actions justify-center mt-3">
       { (Value === 0)? <button className="btn btn-primary w-11/12" disabled>Agregar al carrito</button>
-      : <button className="btn btn-primary w-11/12" onClick={() => clickHandler()}>Agregar al carrito</button>}
+      : <button className="btn btn-primary w-11/12" onClick={() => onAdd(Value)}>Agregar al carrito</button>}
     </div>
 </div>
   )

@@ -17,15 +17,18 @@ En primera instancia, y como las consignas del curso de React sugieren, este sit
 
 ## Herramientas utilizadas
 
--**Tailwind UI:** framework CSS parecido a Bootstrap. Lo utilizo para ahorrar tiempo creando componentes, además me pareció una buena idea incorporar un framework nuevo a mis trabajos. Aprecio mucho su abundancia de clases y el poder personalizarlo manipulando un archivo config js para modificar breakpoints o colores por ejemplo. Me llevé una grata sorpresa al enterarme la cantidad de puglins y complementos que tiene Tailwind, los cuales potencian aún más su versatilidad. Otro punto fuerte de este framework es su extensión de VSCode que facilita encontrar las clases y se puede ver a detalle los estilos de css aplicados.
+- **Tailwind UI:** framework CSS parecido a Bootstrap. Lo utilizo para ahorrar tiempo creando componentes, además me pareció una buena idea incorporar un framework nuevo a mis trabajos. Aprecio mucho su abundancia de clases y el poder personalizarlo manipulando un archivo config js para modificar breakpoints o colores por ejemplo. Me llevé una grata sorpresa al enterarme la cantidad de puglins y complementos que tiene Tailwind, los cuales potencian aún más su versatilidad. Otro punto fuerte de este framework es su extensión de VSCode que facilita encontrar las clases y se puede ver a detalle los estilos de css aplicados.
 
--**Headless UI:** complemento propio de Tailwind para algunos componentes, es indispensable para el Navbar que lleva mi proyecto.
+- **Headless UI:** complemento propio de Tailwind para algunos componentes, es indispensable para el Navbar que lleva mi proyecto.
 
--**Heroicons:** biblioteca de iconos svg de Tailwind, se usan algunos en el Navbar, por ejemplo el carrito.
+- **Heroicons:** biblioteca de iconos svg de Tailwind, se usan algunos en el Navbar, por ejemplo el carrito.
 
--**DaisyUI:** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
+- **DaisyUI:** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
+
 - **React-toastify:** intenté usar toastify-js para poner alertas más visuales pero no funciona bien con React parece. React-toastify parece ser muy popular así que me involucré en la aventura de leer su documentación. Tiene un nivel de personalización exagerado, es incalculable la cantidad de cosas que se le pueden agregar al toast.
  En el proyecto lo uso para avisar cuántos productos fueron agregados al carrito, se trata de brindarle más interacción a la página con el usuario.
+
+- **react-content-loader:** con el propósito de lograr mayor interactividad con el usuario se han agregado svgs que representan la carga de contenido. Dichos componentes son apenas apreciables mientras se vuelve al inicio o se accede a los detalles de algún producto. A pesar de ser tan imperceptibles siento que mejoran mucho el proyecto y lo hacen más completo.
 
 ## Navegabilidad
 
@@ -82,3 +85,8 @@ Aquí se incoporarán las explicaciones a detalle para desplazarse a través del
 - Utilizado operador ternario y otros para montar condicionalmente elementos diversos.
 - Ejemplo: si el stock es igual al valor del contador, el botón "+" se bloquea.
 - Agregado react-toastify para ofrecer mejores alertas.
+- **23/09/22**
+- Vinculados estados de Context con session Storage (carrito guarda información al actualizar página).
+- Añadidos pantallas de carga con svg y dependencias.
+- Datos del ecommerse son obtenidos por Firebase.
+- Arreglado bug donde CardWidget no renderizaba valores si un item ya existía en carrito.

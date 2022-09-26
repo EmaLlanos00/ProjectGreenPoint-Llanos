@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom"
 import { db } from "../utilities/firebaseConfig"
 import { doc, getDoc } from "firebase/firestore";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = () => {//Este componente obtiene los datos de un solo elemento desde FireStore. Se los enviará a ItemDetail para montar los detalles.
 
-  const [singleProd, setSingleProd] = useState({})
-  const { id } = useParams()
-  console.log(id)
+  const [singleProd, setSingleProd] = useState({});
+  const { id } = useParams();
+
+
   useEffect(() => {
 
     async function fetchData() {
@@ -17,17 +18,22 @@ const ItemDetailContainer = () => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        const itemFromFirestore = {
+
+        const itemFromFirestore = {//Se crea un objeto con el id del documento y sus datos. Esto es necesario porque el key de React necesita el id.
+
           id: docSnap.id,
           ...docSnap.data()
+
         }
+
         setSingleProd(itemFromFirestore);
+
       } else {
-        // doc.data() will be undefined in this case
+
         console.log("No such document!");
+
       }
-    }
-    fetchData();
+    } fetchData();
 
   }, [id])
 

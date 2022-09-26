@@ -1,8 +1,71 @@
-import React from 'react'
-import { MegaphoneIcon, XMarkIcon } from '@heroicons/react/24/outline'
-const ContactPage = () => {
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Breadcrum from './Breadcrum';
+
+const ContactPage = () => {//Formulario de contacto que utiliza la api de EmailJS para funcionar. Tiene un toast para proporcionar alertas atractivas para el usuario.
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_wgzoscw', 'template_n9u0txd', form.current, 'pAzh-rv7THJ3HuKp4')
+            .then((result) => {
+                console.log(result.text);
+                toast('Perfecto, se ha enviado tu consulta. Muchas gracias.');
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
-        <div>
+        <>
+            <Breadcrum />
+            <div className="hero min-h-screen bg-base-200" style={{ backgroundImage: `url("https://as2.ftcdn.net/v2/jpg/02/51/15/15/1000_F_251151517_fQuM7JOHtlXKWVG27FWm0vVu0HkeCNbi.jpg")` }}>
+                <div className="hero-content flex-col lg:flex-row-reverse lg:align-top">
+                    <div className=''>
+                        <div className="text-center lg:text-left bg-base-200/60 rounded-xl border-white p-3">
+                            <h1 className="text-5xl font-bold">Contactanos</h1>
+                            <p className="py-6">Estamos ansiosos por saber lo que pensás de nuestro emprendimiento. Podés enviarnos cualquier consulta, queja o sugerencia a través de este formulario.</p>
+                        </div>
+                    </div>
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
+                            <form ref={form} onSubmit={sendEmail} className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" name="user_email" placeholder="alguien@example.com" className="input input-bordered" />
+                                <label className="label">
+                                    <span className="label-text">Nombre</span>
+                                </label>
+                                <input type="text" name="user_name" placeholder="Nombre" className="input input-bordered" />
+                                <label className="label">
+                                    {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
+                                </label>
+                                <label>Comentario</label>
+                                <textarea className="textarea textarea-primary" name="message" placeholder="mensaje..." cols="45" rows={8}></textarea>
+                                <input className="btn btn-primary mt-2" type="submit" value="Enviar" />
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <ToastContainer
+                    toastStyle={{ backgroundColor: '#3ABFF8', color: 'black' }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss={false}
+                    draggable
+                    pauseOnHover
+                />
+                {/* <div>
             <div className="bg-indigo-600">
                 <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap items-center justify-between">
@@ -70,7 +133,10 @@ const ContactPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
-)
+        </div> */}
+            </div>
+        </>
+
+    )
 }
 export default ContactPage          

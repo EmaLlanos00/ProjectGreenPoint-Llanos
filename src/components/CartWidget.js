@@ -1,16 +1,16 @@
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from '../contexts/CartContext';
 
 
 const CartWidget = () => {
     const ctx = useContext(CartContext);
-    return(
+    return (
         <div className="indicator">
             <div className="w-7">
-            <ShoppingCartIcon/>
+                <ShoppingCartIcon />
             </div>
-            <span className="indicator-item badge">{ctx.cartList.reduce((acc, item)=> acc + item.quantity, 0)}</span>
+            <span className="indicator-item badge">{ctx.totalQuantity}</span>
         </div>
     );
 }

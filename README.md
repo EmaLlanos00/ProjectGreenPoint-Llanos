@@ -4,16 +4,22 @@
 
 ## Acerca de este trabajo:
 
-Para culminar mi preparación básica en el mundo del front-end y con el propósito de satisfacer mi cursada de React he creado este e-commerce. Es una tienda online de alimentos dietéticos/veganos/etc. Elegí este rubro porque es algo que me interesa y, a mí juzgar, está lleno de categorías que pueden complejizar mi trabajo a gusto (para establecer filtros, tags, etc).
+Para culminar mi preparación básica en el mundo del front-end y con el propósito de satisfacer mi cursada de React he creado este e-commerce. Es una tienda online de alimentos dietéticos/veganos/etc. Elegí este rubro porque es algo que me interesa y, a mí juzgar está lleno de categorías que pueden complejizar mi trabajo a gusto (para establecer filtros, tags, etc).
 
 ## Estructura del proyecto
 
-En primera instancia, y como las consignas del curso de React sugieren, este sitio va a tener 3 secciones.
+En primera instancia, este sitio tiene 3 secciones bien diferenciadas: productos, sucursales y contacto. Contemplado el carrito, el login y los filtros, podemos hablar de unas 10 u 11
+secciones bien diferenciadas. 
+
+El layout es simple, de tipo Navbar-Contenido-Footer. El Navbar posee contenido dinámico tales como el dropdown, cartWidget y los modales.
+
 - Productos: mi idea es poder agregar muchos productos y establecer filtros pragmáticos para mostrar la página a gusto del usuario. Es el eje central del proyecto.
 
-- Sucursales: se agregará contenido de texto en cantidad, junto a la incorporación de mapas e imágenes.
+- Sucursales: muestra un header con mapa y texto, la página más sencilla del trabajo.
 
-- Contacto: pretendo volcar un intenso trabajo de formularios en esta parte del sitio. Trabajando con APIs de email seguramente.
+- Contacto: utilizando la API de EmailJs esta página ofrece un medio de contacto real conmigo, un formulario sencillo que le aporta realismo al sitio.
+
+- Login/iniciar sesión: si bien no es una parte del sitio que tenga una ruta, es lo suficientemente relevante como para tener su propio contexto. Mediante tabs se *switchea* entre formularios. Por el momento no funciona pero la idea es darle una verosimilitud casi completa al e-commerse desarrollando este modal en su totalidad.
 
 ## Herramientas utilizadas
 
@@ -25,10 +31,16 @@ En primera instancia, y como las consignas del curso de React sugieren, este sit
 
 - **DaisyUI:** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
 
+- **react-router-dom:** requerido para la cursada. Dependencia muy útil que sirve para enlazar los diversos componentes del proyecto. Imprescindible para e-commerse SPA de este tipo.
+
 - **React-toastify:** intenté usar toastify-js para poner alertas más visuales pero no funciona bien con React parece. React-toastify parece ser muy popular así que me involucré en la aventura de leer su documentación. Tiene un nivel de personalización exagerado, es incalculable la cantidad de cosas que se le pueden agregar al toast.
  En el proyecto lo uso para avisar cuántos productos fueron agregados al carrito, se trata de brindarle más interacción a la página con el usuario.
 
 - **react-content-loader:** con el propósito de lograr mayor interactividad con el usuario se han agregado svgs que representan la carga de contenido. Dichos componentes son apenas apreciables mientras se vuelve al inicio o se accede a los detalles de algún producto. A pesar de ser tan imperceptibles siento que mejoran mucho el proyecto y lo hacen más completo.
+
+- **EmailJs:** se utiliza para que el formulario de contacto efectivamente envie un mail y un auto-reply mediante la dependencia propia de la api.
+
+- **Firebase:** obligatorio para la cursada. Herramienta muy potente para la gestión, obtención, edición y creación de base de datos para el sitio.
 
 ## Navegabilidad
 
@@ -90,3 +102,11 @@ Aquí se incoporarán las explicaciones a detalle para desplazarse a través del
 - Añadidos pantallas de carga con svg y dependencias.
 - Datos del ecommerse son obtenidos por Firebase.
 - Arreglado bug donde CardWidget no renderizaba valores si un item ya existía en carrito.
+- **26/09/22**
+- Imágenes alojadas de forma externa.
+- Enviada orden de compra con Firebase, modificado stock de productos de DB.
+- Maquetado básico de páginas extra (Contacto, Sucursales).
+- Formulario de ContactPage funcional con api EmailJs.
+- Nuevo componente Breadcrumb para mostrar ubicación en el sitio.
+- Nuevo context para iniciar sesión a través de un modal.
+- Checkeada la identación y comentarios/código innecesarios.

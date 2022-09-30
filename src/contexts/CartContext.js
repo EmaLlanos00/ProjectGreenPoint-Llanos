@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 export const CartContext = createContext();
-//Este es el contexto del proyecto, desde acá se gestiona la información relativa al carrito.
+//Este es el contexto principal del proyecto, desde acá se gestiona la información relativa al carrito.
 //Una particularidad de mi carrito es que quería evitar que se reinicie la SPA cuando se actualiza la página.
 //Para lograr esto simplemente cree la variable CartFromStorage para interactuar con sessionStorage;
 // si la variable existe, su contenido se imprime en el estado.
@@ -10,15 +10,15 @@ const CartContextProvider = ({ children }) => {
 
   const [cartList, setCartList] = useState((cartFromStorage != null) ? cartFromStorage : []);
 
-  const addItem = (product, qty) => {//Envía un elemento al array de context. Si elemento existe, solamente se actualizará su cantidad.
-
+  const addItem = (product, qty, boolean) => {//Envía un elemento al array de context. Si elemento existe, solamente se actualizará su cantidad.
+    const isInCart = boolean//Sí esta función es llamada desde el carrito, la cantidad de modificará de otra manera, para reutilizar la función (principio DRY).
     const itemsId = cartList.map(item => item.id);
 
     if (itemsId.includes(product.id)) {
 
       const item = cartList.find(item => item.id == product.id);
       const itemIndex = cartList.indexOf(item);
-      cartList[itemIndex].quantity += qty;  //Actualizando qty
+      isInCart ? cartList[itemIndex].quantity = qty : cartList[itemIndex].quantity += qty;  //Actualizando qty
       setCartList([...cartList]);
 
     } else {//Todos los objetos de cartList son objetos nuevos creados con los datos de product y quantity.

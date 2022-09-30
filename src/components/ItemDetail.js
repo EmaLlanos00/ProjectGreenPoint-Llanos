@@ -16,7 +16,7 @@ const ItemDetail = ({ data }) => {//Los datos obtenidos desde su componente padr
 
   const onAdd = (qty) => {//Función que se ejecuta en el hijo ItemCounter, el objetivo es obtener los datos del contador para renderizado y montaje del array de carrito.
 
-    ctx.addItem(data, qty);
+    ctx.addItem(data, qty, false);
     toast('Se han agregado ' + qty + ' productos al carrito!');
     setItemCount(qty);
     ctx.saveCart();
@@ -46,10 +46,10 @@ const ItemDetail = ({ data }) => {//Los datos obtenidos desde su componente padr
 
           }
         </div>
-        <ToastContainer //Toast que aparece cuando se agregue algo al carrito, provee una mejor interfaz para el usuario.
+        <ToastContainer //Toast que aparece cuando se agregue algo al carrito.
           toastStyle={{ backgroundColor: '#3ABFF8', color: 'black' }}
           position="top-right"
-          autoClose={3000}
+          autoClose={2500}
           hideProgressBar
           newestOnTop
           closeOnClick

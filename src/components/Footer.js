@@ -1,12 +1,13 @@
 import React from 'react'
-import Logo from '../logoStore.png'
+
 
 const Footer = () => {//Footer sencillo para encerrar el contenido de cada página entre el Navbar y este footer.
+
   return (
     <footer className="footer p-10 bg-neutral text-neutral-content sticky bottom-auto">
       <div>
         <div className='w-40'>
-          <img src={Logo} alt="Logo"></img>
+          <img src="../logoStore.png" alt="Logo"></img>
         </div>
         <p>Project Green Proint<br />Providing healthy food since 1997</p>
       </div>

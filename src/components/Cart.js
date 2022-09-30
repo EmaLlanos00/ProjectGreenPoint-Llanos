@@ -4,6 +4,8 @@ import { CartContext } from '../contexts/CartContext'
 import CounterCart from './CounterCart';
 import { serverTimestamp, doc, setDoc, collection, updateDoc, increment } from 'firebase/firestore';
 import { db } from '../utilities/firebaseConfig';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {//Este componente mostrará la información alojada en context, array de carrito, y totales. 
     //Le agregué un contador con una lógica ligeramente distinta al contador de ItemDetail.
@@ -13,18 +15,15 @@ const Cart = () => {//Este componente mostrará la información alojada en conte
 
     const onAdd = (qty, id) => {
 
-        const product = ctx.cartList.filter((item) => item.id == id);
-        const newQty = product[0].quantity + qty;
+        const product = ctx.cartList.find((item) => item.id == id);
+        const newQty = qty;
+        console.log(newQty)
 
         if (newQty !== 0) {
 
-            const product = ctx.cartList.filter((item) => item.id == id)
-            ctx.addItem(product[0], qty)
+            /* const product = ctx.cartList.filter((item) => item.id == id) */
+            ctx.addItem(product, qty, true)
             ctx.saveCart();
-
-        } else if (newQty === 0) {
-
-            ctx.deleteItem(id);
 
         }
     }
@@ -36,7 +35,7 @@ const Cart = () => {//Este componente mostrará la información alojada en conte
         quantity: item.quantity
     }))
     const createOrder = async () => {
-        console.log('holaa')
+
         let order = {
             buyer: {
                 name: 'comprador1',
@@ -56,7 +55,7 @@ const Cart = () => {//Este componente mostrará la información alojada en conte
             })
         })
         ctx.clearCart();
-        console.log('Your order has been created. This is your ID\'s order:' + newOrderRef.id)
+        toast(`Compra exitosa, gracias por preferirnos. Purchase id: ${newOrderRef.id}.`, { containerId: 'purchaseSuccess' })
     }
 
     return (
@@ -78,7 +77,7 @@ const Cart = () => {//Este componente mostrará la información alojada en conte
                         </div>
                         <div>
                             <button className="btn btn-primary ml-3" onClick={() => createOrder()}>Finalizar compra</button>
-                            <button className="btn btn-error ml-3" onClick={() => ctx.clearCart()}>Vaciar carrito</button>
+                            <button className="btn btn-error ml-3" onClick={() => { ctx.clearCart(); toast('Vaciaste el carrito.', { containerId: 'cartCleaned' }) }}>Vaciar carrito</button>
                         </div>
                     </div>
                 }
@@ -93,16 +92,58 @@ const Cart = () => {//Este componente mostrará la información alojada en conte
                         <div className='flex justify-end'>
                             <div className='flex flex-col lg:flex-row justify-between gap-3 w-full'>
                                 <div className="card-actions">
-                                    <CounterCart stock={item.stock - item.quantity} initial={0} onAdd={onAdd} id={item.id} qty={item.quantity} />
+                                    <CounterCart stock={item.stock} deleteItem={ctx.deleteItem} onAdd={onAdd} id={item.id} qty={item.quantity} />
                                 </div>
                                 <div className="card-actions">
-                                    <button className="btn btn-error w-full md:w-3/6 lg:w-fit" onClick={() => ctx.deleteItem(item.id)}>Borrar</button>
+                                    <button className="btn btn-error w-full md:w-3/6 lg:w-fit" onClick={() => { ctx.deleteItem(item.id); toast('Producto eliminado.', { containerId: 'deletedOnlyOne' }) }}>Borrar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>)
             }
+            <ToastContainer
+                toastStyle={{ backgroundColor: '#84cc16', color: 'black' }}
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                enableMultiContainer={true}
+                pauseOnFocusLoss={false}
+                draggable
+                containerId='purchaseSuccess'
+                pauseOnHover
+            />
+            <ToastContainer
+                toastStyle={{ backgroundColor: '#F87272', color: 'black' }}
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                enableMultiContainer={true}
+                pauseOnFocusLoss={false}
+                draggable
+                containerId='cartCleaned'
+                pauseOnHover
+            />
+            <ToastContainer
+                toastStyle={{ backgroundColor: '#3ABFF8', color: 'black' }}
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                enableMultiContainer={true}
+                pauseOnFocusLoss={false}
+                draggable
+                containerId='deletedOnlyOne'
+                pauseOnHover
+            />
         </>
     );
 }

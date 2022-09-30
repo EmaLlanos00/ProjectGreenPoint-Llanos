@@ -2,21 +2,27 @@ import React from 'react'
 import { useState } from 'react'
 
 
-const ItemCount = ({ stock, initial, onAdd, id, qty }) => { //Similar a itemCounter, este componente modifcará los valores del item, pero desde el carrito.
+const ItemCount = ({ stock, deleteItem, onAdd, id, qty }) => { //Similar a itemCounter, este componente modifcará los valores del item, pero desde el carrito.
 
-    const [Value, setValue] = useState(initial)
+    const [Value, setValue] = useState(qty)
     const itemId = id
+
+
     const lessProduct = () => {
 
-        if (Value > - qty) {//El contador está limitado entre el valor del quantity negativo (por este if) y el valor del stock menos quantity (por props).
-            setValue(Value - 1);
+        if (qty >= 0) {
+            qty -= 1
+            setValue(qty)
+            onAdd(qty, itemId)
         }
     }
 
     const moreProduct = () => {
 
-        if (Value < stock) {
-            setValue(Value + 1);
+        if (qty <= stock) {
+            qty += 1
+            setValue(qty)
+            onAdd(qty, itemId)
         }
     }
     const cleanCounter = () => {//Función extra para limpiar el contador si se modifica el producto.
@@ -34,7 +40,7 @@ const ItemCount = ({ stock, initial, onAdd, id, qty }) => { //Similar a itemCoun
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 13L18 13" /></svg>
                     </button>}
 
-                <span className='text font-mono text-3xl'> {Value} </span>
+                <span className='text font-mono text-3xl mx-5'> {Value} </span>
                 {(Value === stock) ?
                     <button className="btn btn-square btn-outline" disabled >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" height="1.5rem" width="1.5rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 13L18 13 M12 7L12 19" /></svg>
@@ -45,9 +51,7 @@ const ItemCount = ({ stock, initial, onAdd, id, qty }) => { //Similar a itemCoun
                 }
             </div>
             <div className="card-actions justify-center">
-                {(Value === 0) ? <button className="btn btn-primary w-11/12" disabled>Modificar producto</button>
-                    : <button className="btn btn-primary w-11/12" onClick={() => { onAdd(Value, itemId); cleanCounter() }}>Modificar producto</button>}
-                {/* La función onAdd de este componente recibe 2 parámetros, y el onClick ejecuta, además una limpieza del contador. */}
+                {(Value === 0) && <button className="btn btn-primary w-11/12" onClick={() => (deleteItem(itemId))}>Eliminar</button>}
             </div>
         </div>
     )

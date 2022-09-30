@@ -1,7 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useContext } from 'react'
 import { ModalContex } from '../contexts/ModalContex'
-
+import SignInForm from './forms/SignIn'
+import SignUp from './forms/SignUp'
 export default function AccountModal() {//Modal con formularios, se han combinado elementos de HeadlessUI y DaisyUI con mucho código condicional y el uso de context.
     const modalCtx = useContext(ModalContex)
 
@@ -39,76 +40,22 @@ export default function AccountModal() {//Modal con formularios, se han combinad
                                     >
                                         Registrarse
                                     </Dialog.Title>
-                                    <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
-                                            Your payment has been successfully submitted. We’ve sent
-                                            you an email with all of the details of your order.
-                                        </p>
-                                    </div>
 
-                                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 rounded-lg ">
+                                    <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100 rounded-lg mt-3">
                                         <div className="tabs">
                                             <a className={modalCtx.formActive ? "tab tab-lifted tab-active" : "tab tab-lifted"} onClick={() => modalCtx.swapSignIn()}>Iniciar sesión</a>
                                             <a className={modalCtx.formActive ? "tab tab-lifted" : "tab tab-lifted tab-active"} onClick={() => modalCtx.swapSignUp()}>Crear cuenta</a>
                                         </div>
-
-                                        <div className="card-body border-x-[#cfcfcf] rounded-b-lg border-b-[#cfcfcf] border-solid">
-                                            {modalCtx.formActive ?
-                                                <div>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Email</span>
-                                                        </label>
-                                                        <input type="text" placeholder="email@ejemplo.com" className="input input-bordered" />
-                                                    </div>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Contraseña</span>
-                                                        </label>
-                                                        <input type="text" placeholder="12345" className="input input-bordered" />
-                                                        <label className="label">
-                                                            <a href="#" className="label-text-alt link link-hover">Olvidé mi contraseña</a>
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-control mt-6">
-                                                        <button className="btn btn-primary" onClick={() => { modalCtx.closeModal(); console.log('datos verificados') }}>Iniciar sesión</button>
-                                                    </div>
-                                                </div>
-                                                : <div>
-                                                    <ul className="steps">
-                                                        <li className="step step-primary">Nombre</li>
-                                                        <li className="step step-primary">Email</li>
-                                                        <li className="step">Contraseña</li>
-                                                        <li className="step">Confirmar</li>
-                                                    </ul>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Email</span>
-                                                        </label>
-                                                        <input type="text" placeholder="email" className="input input-bordered" />
-                                                    </div>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Repite email</span>
-                                                        </label>
-                                                        <input type="text" placeholder="email" className="input input-bordered" />
-                                                    </div>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Contraseña</span>
-                                                        </label>
-                                                        <input type="text" placeholder="password" className="input input-bordered" />
-                                                    </div>
-                                                    <div className="form-control">
-                                                        <label className="label">
-                                                            <span className="label-text">Repite contraseña</span>
-                                                        </label>
-                                                        <input type="text" placeholder="password" className="input input-bordered" />
-                                                    </div>
-                                                    <div className="form-control mt-6">
-                                                        <button className="btn btn-primary" onClick={() => { modalCtx.closeModal(); console.log('cuenta creada') }}>Crear cuenta</button>
-                                                    </div>
-                                                </div>}
+                                        {!modalCtx.formActive && <ul className="steps hidden xs:inline-grid">
+                                            <li className="step step-primary">Nombre</li>
+                                            <li className={modalCtx.formStep > 1 ? 'step step-primary' : 'step'}>Email</li>
+                                            <li className={modalCtx.formStep > 2 ? 'step step-primary' : 'step'}>Contraseña</li>
+                                            <li className={modalCtx.formStep > 3 ? 'step step-primary' : 'step'}>Confirmar</li>
+                                            <li data-content="✓" className={modalCtx.formStep > 4 ? 'step step-primary' : 'step'}></li>
+                                        </ul>
+                                        }
+                                        <div className="card-body border-x-[#cfcfcf] rounded-b-lg border-b-[#cfcfcf] border-solid p-0">
+                                            {modalCtx.formActive ? <SignInForm /> : <SignUp />}
                                         </div>
                                     </div>
                                 </Dialog.Panel>

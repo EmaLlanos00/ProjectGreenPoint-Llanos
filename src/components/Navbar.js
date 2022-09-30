@@ -3,7 +3,7 @@ import { Fragment, useContext } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, ArrowRightCircleIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Logo from '../logoStore.png';
+/* import Logo from '/public/logoStore.png'; */
 import CartWidget from './CartWidget'
 import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
@@ -43,20 +43,21 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {//Componente sofisticado extraído de TailwindUI. Se ha purgado código, linkeado y estilizado apropiadamente.
-  //En la línea 133 se muestra el componente CardWidget de manera condicional.
+  //En la línea 138 se muestra el componente CardWidget de manera condicional.
   const ctx = useContext(CartContext);
   const modalCtx = useContext(ModalContex);
+  const nameData = JSON.parse(sessionStorage.getItem('formNameValues'))
 
   return (
-    <Popover className="sticky top-0 bg-yellow-300 z-50">
+    <Popover className="sticky top-0 bg-yellow-300 z-50 border-yellow-400 border-b-2">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link to={`/`}>
               <span className="sr-only">Hola</span>
               <img
                 className=" h-12 w-auto sm:h-16"
-                src={Logo}
+                src="../logoStore.png"
                 alt="Logo"
               />
             </Link>
@@ -139,17 +140,29 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
             </Link>
             }
           </Popover.Group>
-          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <Link className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" onClick={() => { modalCtx.openModal(); modalCtx.swapSignIn() }}>
-              Inicia sesión
-            </Link>
-            <Link
-              onClick={() => { modalCtx.openModal(); modalCtx.swapSignUp() }}
-              className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700"
-            >
-              Registrarse
-            </Link>
-          </div>
+
+          {modalCtx.formStep === 5 ?
+            <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+              <span className='text-gray-900 text-base font-medium mr-5'>Hola {nameData.user} {nameData.lastName}!</span>
+              <div className="avatar placeholder">
+                <div className="bg-neutral-focus text-neutral-content rounded-full w-16">
+                  <span className='text-xl'>{nameData.user.slice(0, 1)} {nameData.lastName.slice(0, 1)}</span>
+                </div>
+              </div>
+            </div>
+            : <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+              <Link className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" onClick={() => { modalCtx.openModal(); modalCtx.swapSignIn() }}>
+                Inicia sesión
+              </Link>
+              <Link
+                onClick={() => { modalCtx.openModal(); modalCtx.swapSignUp() }}
+                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700"
+              >
+
+                Registrarse
+              </Link>
+            </div>
+          }
         </div>
       </div>
 
@@ -169,7 +182,7 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
                 <div>
                   <img
                     className="h-12 w-full m-2"
-                    src={Logo}
+                    src="../logoStore.png"
                     alt="logo"
                   />
                 </div>
@@ -231,6 +244,6 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
           </div>
         </Popover.Panel>
       </Transition>
-    </Popover>
+    </Popover >
   )
 }

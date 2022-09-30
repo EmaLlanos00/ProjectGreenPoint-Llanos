@@ -7,6 +7,8 @@ const ModalContexProvider = ({ children }) => {//Este context sirve para mostrar
     //Me pareció la manera más lógica de llamar a algo en todo el proyecto constantemente.
 
     const [modal, setModal] = useState(false);
+    const [formActive, setFormActive] = useState(true);
+    const [formStep, setFormStep] = useState(1);
 
     function closeModal() {
         setModal(false)
@@ -15,8 +17,6 @@ const ModalContexProvider = ({ children }) => {//Este context sirve para mostrar
     function openModal() {
         setModal(true)
     }
-
-    const [formActive, setFormActive] = useState(true);
 
     function swapSignIn() {
 
@@ -27,9 +27,12 @@ const ModalContexProvider = ({ children }) => {//Este context sirve para mostrar
 
         setFormActive(false)
     }
+    function changeSignUpForm(number) {
+        setFormStep(number);
+    }
 
     return (
-        <ModalContex.Provider value={{ modal, closeModal, openModal, formActive, swapSignIn, swapSignUp }}>{children}</ModalContex.Provider>
+        <ModalContex.Provider value={{ modal, closeModal, openModal, formActive, swapSignIn, swapSignUp, formStep, changeSignUpForm }}>{children}</ModalContex.Provider>
     )
 }
 

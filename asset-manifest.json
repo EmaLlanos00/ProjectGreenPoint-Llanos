@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/css/main.7256f8cc.css",
+    "main.js": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/js/main.25bba8b8.js",
+    "static/js/787.9ef9274d.chunk.js": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/js/787.9ef9274d.chunk.js",
+    "index.html": "/EmaLlanos00/ProjectGreenPoint-Llanos/index.html",
+    "main.7256f8cc.css.map": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/css/main.7256f8cc.css.map",
+    "main.25bba8b8.js.map": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/js/main.25bba8b8.js.map",
+    "787.9ef9274d.chunk.js.map": "/EmaLlanos00/ProjectGreenPoint-Llanos/static/js/787.9ef9274d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7256f8cc.css",
+    "static/js/main.25bba8b8.js"
+  ]
+}

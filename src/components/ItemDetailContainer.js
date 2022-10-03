@@ -19,8 +19,7 @@ const ItemDetailContainer = () => {//Este componente obtiene los datos de un sol
 
       if (docSnap.exists()) {
 
-        const itemFromFirestore = {//Se crea un objeto con el id del documento y sus datos. Esto es necesario porque el key de React necesita el id.
-
+        const itemFromFirestore = {
           id: docSnap.id,
           ...docSnap.data()
 

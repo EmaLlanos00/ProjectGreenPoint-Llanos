@@ -38,7 +38,7 @@ const FormName = () => {//Parte 1 de formularios para crear cuenta. Ingreso de d
                 onSubmit={(myValues, { resetForm }) => {
                     resetForm();
                     console.log(myValues)
-                    sessionStorage.setItem('formNameValues', JSON.stringify(myValues))
+                    localStorage.setItem('formNameValues', JSON.stringify(myValues))
                     console.log('formulario 1 enviado')
                     modalCtx.changeSignUpForm(2)
                 }}>

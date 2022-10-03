@@ -35,7 +35,7 @@ const FormEmail = () => {//Parte 2 de formularios, agregando mail e info relevan
                 }}
                 onSubmit={(myValues, { resetForm }) => {
                     console.log('formulario 2 enviado')
-                    sessionStorage.setItem('formEmailValues', JSON.stringify(myValues))
+                    localStorage.setItem('formEmailValues', JSON.stringify(myValues))
                     resetForm();
                     modalCtx.changeSignUpForm(3)
 

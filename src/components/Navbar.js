@@ -3,7 +3,6 @@ import { Fragment, useContext } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, ArrowRightCircleIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-/* import Logo from '/public/logoStore.png'; */
 import CartWidget from './CartWidget'
 import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
@@ -46,7 +45,7 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
   //En la línea 138 se muestra el componente CardWidget de manera condicional.
   const ctx = useContext(CartContext);
   const modalCtx = useContext(ModalContex);
-  const nameData = JSON.parse(sessionStorage.getItem('formNameValues'))
+  const nameData = JSON.parse(localStorage.getItem('formNameValues'))
 
   return (
     <Popover className="sticky top-0 bg-yellow-300 z-50 border-yellow-400 border-b-2">
@@ -57,7 +56,7 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
               <span className="sr-only">Hola</span>
               <img
                 className=" h-12 w-auto sm:h-16"
-                src="../logoStore.png"
+                src="https://i.ibb.co/58kSw4N/logo-Store.png"
                 alt="Logo"
               />
             </Link>
@@ -144,9 +143,11 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
           {modalCtx.formStep === 5 ?
             <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
               <span className='text-gray-900 text-base font-medium mr-5'>Hola {nameData.user} {nameData.lastName}!</span>
-              <div className="avatar placeholder">
-                <div className="bg-neutral-focus text-neutral-content rounded-full w-16">
-                  <span className='text-xl'>{nameData.user.slice(0, 1)} {nameData.lastName.slice(0, 1)}</span>
+              <div className="tooltip hover:tooltip-open tooltip-bottom tooltip-error" data-tip="borrar cuenta">
+                <div className="avatar placeholder">
+                  <div className="bg-neutral-focus text-neutral-content rounded-full w-16">
+                    <span className='text-xl  cursor-pointer' onClick={() => { localStorage.clear(); modalCtx.changeSignUpForm(1) }}>{nameData.user.slice(0, 1)} {nameData.lastName.slice(0, 1)}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -182,7 +183,7 @@ export default function Navbar() {//Componente sofisticado extraído de Tailwind
                 <div>
                   <img
                     className="h-12 w-full m-2"
-                    src="../logoStore.png"
+                    src="https://i.ibb.co/58kSw4N/logo-Store.png"
                     alt="logo"
                   />
                 </div>

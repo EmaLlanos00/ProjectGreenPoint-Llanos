@@ -2,6 +2,8 @@
 
 ## [Changelog](#new)
 
+## [Github Pages](https://emallanos00.github.io/)
+
 ## Acerca de este trabajo:
 
 Para culminar mi preparación básica en el mundo del front-end y con el propósito de satisfacer mi cursada de React he creado este e-commerce. Es una tienda online de alimentos dietéticos/veganos/etc. Elegí este rubro porque es algo que me interesa y, a mí juzgar está lleno de categorías que pueden complejizar mi trabajo a gusto (para establecer filtros, tags, etc).
@@ -23,24 +25,26 @@ El layout es simple, de tipo Navbar-Contenido-Footer. El Navbar posee contenido 
 
 ## Herramientas utilizadas
 
-- **Tailwind UI:** framework CSS parecido a Bootstrap. Lo utilizo para ahorrar tiempo creando componentes, además me pareció una buena idea incorporar un framework nuevo a mis trabajos. Aprecio mucho su abundancia de clases y el poder personalizarlo manipulando un archivo config js para modificar breakpoints o colores por ejemplo. Me llevé una grata sorpresa al enterarme la cantidad de puglins y complementos que tiene Tailwind, los cuales potencian aún más su versatilidad. Otro punto fuerte de este framework es su extensión de VSCode que facilita encontrar las clases y se puede ver a detalle los estilos de css aplicados.
+- **[Tailwind CSS:](https://tailwindcss.com/)** framework CSS parecido a Bootstrap. Lo utilizo para ahorrar tiempo creando componentes, además me pareció una buena idea incorporar un framework nuevo a mis trabajos. Aprecio mucho su abundancia de clases y el poder personalizarlo manipulando un archivo config js para modificar breakpoints o colores por ejemplo. Me llevé una grata sorpresa al enterarme la cantidad de puglins y complementos que tiene Tailwind, los cuales potencian aún más su versatilidad. Otro punto fuerte de este framework es su extensión de VSCode que facilita encontrar las clases y se puede ver a detalle los estilos de css aplicados.
 
-- **Headless UI:** complemento propio de Tailwind para algunos componentes, es indispensable para el Navbar que lleva mi proyecto.
+- **[Headless UI:](https://headlessui.com/)** complemento propio de Tailwind para algunos componentes, es indispensable para el Navbar que lleva mi proyecto.
 
-- **Heroicons:** biblioteca de iconos svg de Tailwind, se usan algunos en el Navbar, por ejemplo el carrito.
+- **[Heroicons:](https://heroicons.com/)** biblioteca de iconos svg de Tailwind, se usan algunos en el Navbar, por ejemplo el carrito.
 
-- **DaisyUI:** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
+- **[DaisyUI:](https://daisyui.com/)** Plugin de componentes basado en TailwindUI, gran parte de los componentes de este sitio utilizan este plugin. Destaco la sencillez de sus componentes y la fácil customización de colores que ofrece. 
 
-- **react-router-dom:** requerido para la cursada. Dependencia muy útil que sirve para enlazar los diversos componentes del proyecto. Imprescindible para e-commerse SPA de este tipo.
+- **[react-router-dom:](https://v5.reactrouter.com/web/guides/quick-start)** requerido para la cursada. Dependencia muy útil que sirve para enlazar los diversos componentes del proyecto. Imprescindible para e-commerse SPA de este tipo.
 
-- **React-toastify:** intenté usar toastify-js para poner alertas más visuales pero no funciona bien con React parece. React-toastify parece ser muy popular así que me involucré en la aventura de leer su documentación. Tiene un nivel de personalización exagerado, es incalculable la cantidad de cosas que se le pueden agregar al toast.
+- **[React-toastify:](https://fkhadra.github.io/react-toastify/introduction/)** intenté usar toastify-js para poner alertas más visuales pero no funciona bien con React parece. React-toastify parece ser muy popular así que me involucré en la aventura de leer su documentación. Tiene un nivel de personalización exagerado, es incalculable la cantidad de cosas que se le pueden agregar al toast.
  En el proyecto lo uso para avisar cuántos productos fueron agregados al carrito, se trata de brindarle más interacción a la página con el usuario.
 
-- **react-content-loader:** con el propósito de lograr mayor interactividad con el usuario se han agregado svgs que representan la carga de contenido. Dichos componentes son apenas apreciables mientras se vuelve al inicio o se accede a los detalles de algún producto. A pesar de ser tan imperceptibles siento que mejoran mucho el proyecto y lo hacen más completo.
+- **[react-content-loader:](https://github.com/danilowoz/react-content-loader#readme)** con el propósito de lograr mayor interactividad con el usuario se han agregado svgs que representan la carga de contenido. Dichos componentes son apenas apreciables mientras se vuelve al inicio o se accede a los detalles de algún producto. A pesar de ser tan imperceptibles siento que mejoran mucho el proyecto y lo hacen más completo.
 
-- **EmailJs:** se utiliza para que el formulario de contacto efectivamente envie un mail y un auto-reply mediante la dependencia propia de la api.
+- **[EmailJs:](https://www.emailjs.com/)** se utiliza para que el formulario de contacto efectivamente envie un mail y un auto-reply mediante la dependencia propia de la api.
 
-- **Firebase:** obligatorio para la cursada. Herramienta muy potente para la gestión, obtención, edición y creación de base de datos para el sitio.
+- **[Firebase:](https://firebase.google.com/)** obligatorio para la cursada. Herramienta muy potente para la gestión, obtención, edición y creación de base de datos para el sitio.
+
+- **[Formik:](https://formik.org/)** dependencia enfocada en simplificar los formularios de React. La utilicé para los formularios de ingreso/creación de cuenta de la página.
 
 ## Navegabilidad
 

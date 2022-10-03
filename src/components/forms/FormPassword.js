@@ -40,7 +40,7 @@ const FormPassword = () => {//Parte 3 de formularios para crear una cuenta. Veri
                 onSubmit={(myValues, { resetForm }) => {
                     console.log('formulario 3 enviado')
                     resetForm();
-                    sessionStorage.setItem('formPasswordValues', JSON.stringify(myValues))
+                    localStorage.setItem('formPasswordValues', JSON.stringify(myValues))
                     modalCtx.changeSignUpForm(4)
                 }}
             >

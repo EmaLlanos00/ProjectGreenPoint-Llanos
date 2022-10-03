@@ -7,7 +7,7 @@ const Footer = () => {//Footer sencillo para encerrar el contenido de cada pági
     <footer className="footer p-10 bg-neutral text-neutral-content sticky bottom-auto">
       <div>
         <div className='w-40'>
-          <img src="../logoStore.png" alt="Logo"></img>
+          <img src="https://i.ibb.co/58kSw4N/logo-Store.png" alt="Logo"></img>
         </div>
         <p>Project Green Proint<br />Providing healthy food since 1997</p>
       </div>

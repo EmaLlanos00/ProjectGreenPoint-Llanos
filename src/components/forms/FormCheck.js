@@ -7,8 +7,8 @@ const FormCheck = () => {//Parte 4 de formularios. EL usuario verificará si los
     const modalCtx = useContext(ModalContex)
     const [successForm, SetSuccessForm] = useState(false)
     const [changeData, setChangeData] = useState(false);
-    const nameData = JSON.parse(sessionStorage.getItem('formNameValues'))
-    const emailData = JSON.parse(sessionStorage.getItem('formEmailValues'))
+    const nameData = JSON.parse(localStorage.getItem('formNameValues'))
+    const emailData = JSON.parse(localStorage.getItem('formEmailValues'))
 
 
     return (

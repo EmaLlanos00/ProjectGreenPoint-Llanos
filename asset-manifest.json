@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ProjectGreenPoint-Llanos/static/css/main.7256f8cc.css",
-    "main.js": "/ProjectGreenPoint-Llanos/static/js/main.14f3deaf.js",
-    "static/js/787.9ef9274d.chunk.js": "/ProjectGreenPoint-Llanos/static/js/787.9ef9274d.chunk.js",
-    "index.html": "/ProjectGreenPoint-Llanos/index.html",
-    "main.7256f8cc.css.map": "/ProjectGreenPoint-Llanos/static/css/main.7256f8cc.css.map",
-    "main.14f3deaf.js.map": "/ProjectGreenPoint-Llanos/static/js/main.14f3deaf.js.map",
-    "787.9ef9274d.chunk.js.map": "/ProjectGreenPoint-Llanos/static/js/787.9ef9274d.chunk.js.map"
+    "main.css": "/static/css/main.7256f8cc.css",
+    "main.js": "/static/js/main.dd2c5c32.js",
+    "static/js/787.9ef9274d.chunk.js": "/static/js/787.9ef9274d.chunk.js",
+    "index.html": "/index.html",
+    "main.7256f8cc.css.map": "/static/css/main.7256f8cc.css.map",
+    "main.dd2c5c32.js.map": "/static/js/main.dd2c5c32.js.map",
+    "787.9ef9274d.chunk.js.map": "/static/js/787.9ef9274d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7256f8cc.css",
-    "static/js/main.14f3deaf.js"
+    "static/js/main.dd2c5c32.js"
   ]
 }
